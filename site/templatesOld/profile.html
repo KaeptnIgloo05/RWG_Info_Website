@@ -1,0 +1,75 @@
+{% extends "template.html" %}
+{% block content %}
+   <div class="container-fluid padding profile-card">
+        <div class="row padding">
+            <div class="col-12">
+                <div class="card">
+                    <div class="">
+                        <img class="card-img-top" src="/static/images/banner.jpg" alt="">
+                        <div class="carousel-caption">
+                            <h2 class="text-center account-cc d-none d-sm-block">Welcome {{current_user.username}}!</h2>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-header mr-4"> <img src="{{ image_file }}" class="rounded-circle img-thumbnail img-fluid" height="90px" width="90px" alt=""> {{current_user.username}}</h4>
+                        <h6 class="text-muted">{{current_user.email}}</h6>
+                    </div>
+                </div>
+            </div>
+   </div>
+
+   <div>
+        <form method="post" action="" class="col-12">
+            {{form.hidden_tag()}}
+            <fieldset class="form-group">
+                <legend class="border-bottom font-weight-bold mb-4 pt-4"><p style="color: darkcyan" class="d-inline">Update Account</p></legend>
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                      </div>
+                        {% if form.username.errors%}
+                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {%for error in form.username.errors%}
+                                <span>{{ error }}</span>
+                            {%endfor%}
+                        </div>
+
+                        {% else %}
+                        {{form.username(class="form-control form-control-lg")}}
+
+                    {%endif%}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">E-mail</span>
+                      </div>
+                        {% if form.email.errors%}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {%for error in form.email.errors%}
+                                <span>{{ error }}</span>
+                            {%endfor%}
+                        </div>
+
+                        {% else %}
+                        {{form.email(class="form-control form-control-lg")}}
+
+                    {%endif%}
+                    </div>
+                </div>
+            </fieldset>
+            <div>
+                {{form.submit(class="btn btn-primary mb-4")}}
+            </div>
+        </form>
+    </div>
+    <div class="border-top pt-3 col-12 pb-2">
+        <small class="text-muted">
+            <a href="{{ url_for('users.logout') }}">Logout</a>
+        </small>
+    </div>
+{% endblock content %}

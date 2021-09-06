@@ -1,0 +1,314 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap");
+:root {
+  --primary-light: #ebf4f6;
+  --primary: #bdeaee;
+  --primary-dark: #76b4bd;
+  --white: #FFFFFF;
+  --greyLight-1: #E4EBF5;
+  --greyLight-2: #c8d0e7;
+  --greyLight-3: #bec8e4;
+  --greyDark: #9baacf;
+  --black: #000000;
+  --darkBlue-1: #323343;
+  --darkBlue-2: #292a37;
+  --darkBlue-3: #191a22;
+}
+
+body {
+  background-color: var(--greyLight-1);
+}
+
+footer {
+  justify-content: center;
+  align-items: center;
+}
+footer hr {
+  width: 100%;
+  padding-top: 0;
+  margin-top: -0.7rem;
+}
+footer .spacer {
+  padding-bottom: 0.5rem;
+}
+
+.switch {
+  justify-self: center;
+}
+.switch input {
+  display: none;
+}
+.switch__1 {
+  width: 4rem;
+}
+.switch__1 label {
+  display: flex;
+  align-items: center;
+  width: 3rem;
+  height: 1.5rem;
+  background: rgba(255, 255, 255, 0);
+  position: relative;
+  cursor: pointer;
+  border-radius: 1.6rem;
+}
+.switch__1 label::after {
+  content: "";
+  position: absolute;
+  left: 0.4rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--greyDark);
+  transition: all 0.4s ease;
+}
+.switch__1 label::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(330deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+.switch input:checked ~ label::before {
+  opacity: 1;
+}
+.switch input:checked ~ label::after {
+  left: 57%;
+  background: var(--greyLight-1);
+}
+
+.nav .nav-link {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  color: var(--greyDark);
+}
+.nav .nav-link:hover {
+  color: #48cfea !important;
+}
+.nav #loupe {
+  color: #8A8A7E;
+}
+.nav #loupe:hover {
+  color: #48cfea !important;
+}
+.nav .navbar-brand {
+  margin-top: 5rem;
+  border: none;
+}
+
+card__access {
+  position: fixed;
+  bottom: 1rem;
+  right: 1.5rem;
+  padding: 0.5rem;
+  vertical-align: middle;
+}
+
+.logo > img:hover {
+  animation: logoRotate 0.5s linear 10s infinite normal, logoColor 3600s ease-in-out 11s infinite normal;
+}
+
+.segmented-control {
+  width: 7rem;
+  height: 2.5rem;
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.segmented-control input {
+  display: none;
+}
+.segmented-control > input:checked + label {
+  transition: all 0.5s ease;
+  color: var(--primary);
+}
+.segmented-control__1, .segmented-control__2 {
+  width: 3rem;
+  height: 3.3rem;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--greyDark);
+  transition: all 0.5s ease;
+}
+.segmented-control__1:hover, .segmented-control__2:hover {
+  color: var(--primary);
+}
+.segmented-control__color {
+  position: absolute;
+  height: 2rem;
+  width: 2rem;
+  margin-left: 0.3rem;
+  border-radius: 0.8rem;
+  box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+  pointer-events: none;
+}
+
+#tab-1:checked ~ .segmented-control__color {
+  transform: translateX(0);
+  transition: transform 0.5s cubic-bezier(0.35, 0, 0.6, 0.99);
+}
+
+#tab-2:checked ~ .segmented-control__color {
+  transform: translateX(3.5rem);
+  transition: transform 0.5s cubic-bezier(0.35, 0, 0.6, 0.99);
+}
+
+.btn__shadow {
+  background: var(--greyLight-1);
+  margin-left: 0.8rem;
+  color: #6E6E64;
+  border-radius: 0.4rem;
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+}
+.btn__shadow--inset {
+  margin-left: 0.8rem;
+  color: #6E6E64;
+  border-radius: 0.4rem;
+  border: 0;
+  box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+}
+.btn__shadow--inset--dark {
+  margin-left: 0.8rem;
+  color: #6E6E64;
+  border-radius: 0.4rem;
+  border: 0;
+  box-shadow: inset 0.2rem 0.2rem 0.5rem var(--darkBlue-3), inset -0.2rem -0.2rem 0.5rem 0.3rem var(--darkBlue-1);
+}
+.btn__shadow--dark {
+  margin-left: 0.8rem !important;
+  color: #6E6E64 !important;
+  border-radius: 0.4rem;
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--darkBlue-1), -0.2rem -0.2rem 0.5rem var(--darkBlue-3);
+}
+.btn__access {
+  position: fixed;
+  bottom: 1rem;
+  right: 1.5rem;
+  padding: 0.5rem;
+  vertical-align: middle;
+  border: 1px transparent;
+  cursor: help;
+  border-radius: 50% !important;
+}
+.btn__access > i {
+  cursor: help;
+}
+.btn__access--dark {
+  color: #1b8de4 !important;
+}
+.btn__access > i {
+  cursor: help;
+}
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.dark-mode {
+  background-color: var(--darkBlue-2);
+  color: white;
+}
+
+.IDE {
+  position: relative;
+  width: 40rem;
+  height: auto;
+  left: 50%;
+  top: 2%;
+}
+
+.paper {
+  background: linear-gradient(-38deg, transparent 1rem, #d1ddee 0);
+  position: relative;
+  overflow: hidden;
+  transition: cubic-bezier(0.1, 0.4, 0.26, 0.99) 2s;
+}
+.paper::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 1.75rem;
+  height: 1.25rem;
+  background: linear-gradient(-38deg, transparent 1rem, #d1ddee 0);
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+  overflow: hidden;
+  transition: cubic-bezier(0.1, 0.4, 0.26, 0.99) 2s;
+}
+.paper:hover {
+  background: linear-gradient(-33deg, transparent 1.5rem, #d1ddee 0);
+  position: relative;
+  overflow: hidden;
+  transition: cubic-bezier(0.1, 0.4, 0.26, 0.99) 2s;
+}
+.paper:hover::before {
+  content: "";
+  position: absolute;
+  bottom: 0rem;
+  right: 0;
+  width: 2.75rem;
+  height: 2rem;
+  background: linear-gradient(-33deg, transparent 1.5rem, #d1ddee 0);
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+  overflow: hidden;
+}
+
+.paper__dark {
+  background: linear-gradient(-38deg, transparent 1rem, var(--darkBlue-1) 0);
+  position: relative;
+  overflow: hidden;
+  transition: cubic-bezier(0.1, 0.4, 0.26, 0.99) 2s;
+}
+.paper__dark::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 1.75rem;
+  height: 1.25rem;
+  background: linear-gradient(-38deg, transparent 1rem, var(--darkBlue-1 0));
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+  overflow: hidden;
+  transition: cubic-bezier(0.1, 0.4, 0.26, 0.99) 2s;
+}
+.paper__dark:hover {
+  background: linear-gradient(-33deg, transparent 1.5rem, var(--darkBlue-1 0));
+  position: relative;
+  overflow: hidden;
+  transition: cubic-bezier(0.1, 0.4, 0.26, 0.99) 2s;
+}
+.paper__dark:hover::before {
+  content: "";
+  position: absolute;
+  bottom: 0rem;
+  right: 0;
+  width: 2.75rem;
+  height: 2rem;
+  background: linear-gradient(-33deg, transparent 1.5rem, #d1ddee 0);
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+  overflow: hidden;
+}
+
+@keyframes logoRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes logoColor {
+  from {
+    filter: invert(1);
+  }
+  to {
+    filter: invert(1);
+  }
+}
+
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="../static/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="../static/assets/css/app.css" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../static/favicon.ico">
+    
+        <!---{%if title%}--->
+        <title>RWG-INFO - {{ title }}</title>
+        <!---{%else%}--->
+        <title>RWG-INFO.DDNSS.DE</title>
+
+        <style>
+            scroll-behavior: smooth;*{overflow-y:scroll;-ms-overflow-style:none; scrollbar-width:none;}*::-webkit-scrollbar{display:none;}
+        </style>
+
+    </head>
+    <body>
+    
+        <!--- Navigation Header --->
+        <nav class="navbar navbar-expand-sm flex-sm-nowrap flex-wrap pt-0 pb-0 navbar-light clearfix" style="margin-top: -.5rem;">
+            <div class="container-fluid">
+                <button class="navbar-toggler flex-grow-sm-1 flex-grow-0 me-2 design btn__shadow" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                    <span class="navbar-toggler-icon" style="color: black;"></span>
+                </button>
+                <span class="navbar-brand flex-grow-1">
+                    <button class="btn logo" onclick="darkToggle()">
+                        <img class="mb-3" src="../static/assets/img/Logo.svg" alt="RWG" style="width: auto; height: 50px;">
+                    </button>
+                </span>
+                <div class="navbar-collapse collapse flex-grow-1 justify-content-end" id="navbar">
+                    <ul class="nav navbar-pills ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Beispiele</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Material</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Kontakt</a>
+                        </li>
+                        <li class="nav-item design btn__shadow">
+                            <a class="nav-link" href="#">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <form role="search">
+                                <input class="collapse collapse-horizontal design-i btn__shadow--inset" id="searchform" id placeholder="Suchen...">
+                                <button type="button" class="btn design btn__shadow" style="border-radius: 50%;" data-toggle="collapse" data-target="#searchform" aria-expanded="false" aria-controls="#searchform">
+                                    <a id="loupe" href="#"><i class="fas fa-search"></i></a>
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!--- accessibility card --->
+        <div class="collapse" id="access-btn" style="position: fixed;">
+            <div class="design btn__shadow" style="width: 18.5rem;">
+                <h6 class="card-title"><i class="fas fa-universal-access fa-2x pl-1 pt-1" style="height: auto; color: #105488;"></i>
+                    Accessibility Menu (ALT+U)
+                    <button type="button" class="btn-close ml-auto" data-bs-toggle="collapse" data-bs-target="#access-btn" aria-expanded="false" aria-controls="access-btn"></button>
+                </h6>
+                <div class="card-body mt-2">
+                    <div class="switch" style="padding: 0;">
+                        <div class="switch__1 d-inline-flex">
+                            <i class="fas fa-adjust mt-1"></i>
+                            <input id="switch-1" type="checkbox" onclick="darkToggle()">
+                            <label class="design btn__shadow" for="switch-1"></label>
+                        </div>
+                    </div>
+
+                    <div class="segmented-control design btn__shadow" style="border-radius: 1rem;">
+      
+                        <input type="radio" name="radio" value="1" id="tab-1" checked/>
+                        <label for="tab-1" class="segmented-control__1 my-auto mx-auto">
+                          <p>DE</p></label>
+                        
+                        <input type="radio" name="radio" value="2" id="tab-2" />
+                        <label for="tab-2" class="segmented-control__2 my-auto mx-auto">
+                          <p>EN</p></label>
+                        <div class="segmented-control__color design-i btn__shadow--inset"></div>
+                      </div>
+                </div>
+            </div>
+        </div>
+
+        <!--- IDE Animation --->
+        <div style="padding-bottom: 50px; height: 1000px;">
+            <img class="IDE" src="../static/assets/img/IDE.svg">
+        </div>
+        
+        <!--- accessibility button --->
+        <button accesskey="U" type="button" class="btn design btn__shadow btn__access" data-bs-toggle="collapse" data-bs-target="#access-btn" aria-expanded="false" aria-controls="access-btn">
+            <i class="fas fa-universal-access fa-2x" style="height: auto; color: #105488;"></i>
+        </button>
+
+        <!--- footer --->
+        <footer id="footer" class="paper">
+            <hr style="padding-top: 10px;">
+            <div class="container-fluid row text-center">
+                <div class="col col-12 col-sm-4 col-md-4">
+                    <h5>Impressum</h5>
+                    <hr class="light">
+                    <p>f_stagun@stud.rwg-waren.de</p>
+                    <p>fabianstagun@outlook.de</p>
+                    <p>+49 172 2959829</p>
+                    <div class="spacer"></div>
+                </div>
+                <div class="col col-12 col-sm-4 col-md-4">
+                    <h5>Social Media</h5>
+                    <hr class="light">
+                    <p>f_stagun@stud.rwg-waren.de</p>
+                    <p>fabianstagun@outlook.de</p>
+                    <p>+49 172 2959829</p>
+                    <div class="spacer"></div>
+                </div>
+                <div class="col col-12 col-sm-4 col-md-4">
+                    <h5>RWG</h5>
+                    <hr class="light">
+                    <p>f_stagun@stud.rwg-waren.de</p>
+                    <p>fabianstagun@outlook.de</p>
+                    <p>+49 172 2959829</p>
+                </div>
+            </div>
+        </footer>
+
+        <!--- Scripts --->
+        <script src="https://kit.fontawesome.com/3e839a3d36.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="../static/assets/js/bootstrap.min.js"></script>
+        <script src="../static/assets/js/app.js"></script>
+    </body>
+</html>

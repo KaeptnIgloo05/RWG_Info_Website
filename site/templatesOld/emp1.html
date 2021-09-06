@@ -1,0 +1,10 @@
+{% extends "employee_layout.html" %}
+{% block cont %}
+
+    <div>
+        <h4 class="card-header mr-4"> <img src="/static/images/team.png" class="rounded-circle img-thumbnail img-fluid" height="90px" width="90px" alt=""> {{current_user.username}}</h4>
+        <h6 class="text-muted">{{current_user.email}}</h6>
+        <p class="card-body"></p>
+    </div>
+
+{% endblock cont %}

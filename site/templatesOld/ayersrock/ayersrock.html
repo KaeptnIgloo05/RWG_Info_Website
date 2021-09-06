@@ -1,0 +1,298 @@
+{% extends "template.html" %}
+{% block content %}
+<!--- https://www.wairuakaieke.com/ ---->
+<script type="text/javascript">
+    $(function() {
+        var selectedClass = "";
+            $(".filter").click(function(){
+        selectedClass = $(this).attr("data-rel");
+            $("#gallery").fadeTo(100, 0.1);
+            $("#gallery div").not("."+selectedClass).fadeOut().removeClass('animation');
+        setTimeout(function() {
+                $("."+selectedClass).fadeIn().addClass('animation');
+                $("#gallery").fadeTo(300, 1);
+            }, 300);
+        });
+    });
+</script>
+    
+    <p style="margin-top: -3rem;">
+        <iframe loading="lazy" style="border: 0; width: 100%; height: 30rem;" tabindex="0" src="https://www.google.com/maps/embed?pb=!4v1590509618807!6m8!1m7!1sCAoSLEFGMVFpcE1MRU9IbVFDVTZncnZRSGRLRkc5MTdndnR3SktZTlhFM2kwZGpX!2m2!1d-25.2999906!2d130.7310594!3f93.17427177276583!4f46.920033048854066!5f0.7820865974627469" width="600" height="400" frameborder="0" allowfullscreen="allowfullscreen" aria-hidden="false" data-rocket-lazyload="fitvidscompatible" class="lazyloaded" data-ll-status="loaded"></iframe>
+        <noscript>
+            <iframe style="border: 0;" tabindex="0" src="https://www.google.com/maps/embed?pb=!4v1590509618807!6m8!1m7!1sCAoSLEFGMVFpcE1MRU9IbVFDVTZncnZRSGRLRkc5MTdndnR3SktZTlhFM2kwZGpX!2m2!1d-25.2999906!2d130.7310594!3f93.17427177276583!4f46.920033048854066!5f0.7820865974627469" width="600" height="400" frameborder="0" allowfullscreen="allowfullscreen" aria-hidden="false"></iframe>
+        </noscript>
+    </p>
+
+    <div class="container-fluid">
+
+        <aside class="col-md-2 blog-sidebar rounded float-left border-secondary" style="margin-top: -10rem; position: fixed;">
+
+              <div class="p-3">
+                <h4 class="font-italic">Links</h4>
+                <ol class="list-unstyled mb-0">
+                    <li><a type="button" class="btn btn-outline-success" href="#wildlife">Wildlife</a></li>
+                    <li><a type="button" class="btn btn-outline-success" href="#history">History </a></li>
+                    <li><div class="dropdown-divider"></div></li>
+                    <li><a type="button" class="btn btn-outline-success" href="#today">Today   </a></li>
+                </ol>
+              </div>
+
+              <div class="p-3">
+                <h4 class="font-italic">Social</h4>
+                <ol class="list-unstyled">
+                  <li><a href="#" type="button" class="btn btn-outline-warning">GitHub</a></li>
+                  <li><a href="https://twitter.com/fabilus11" target="_blank" type="button" class="btn btn-outline-warning">Twitter</a></li>
+                  <li><a href="https://www.facebook.com/profile.php?id=100050845702061" target="_blank" type="button" class="btn btn-outline-warning">Facebook</a></ >
+                </ol>
+            </aside>
+
+            <div class="card col-md-9" style="margin: 80px auto 50px; font-size: 50px;">
+                <div class="card-body" style="font-weight: 300; font-size: 22px;">
+                    <h2 class="card-title">Ayers Rock...</h2>
+                    <h6 class="card-subtitle">by <cite><u>Fabian Stagun</u></cite><br></h6>
+                    <div class="card-text col col-md-6">
+                        ...Ayers Rock, or now called Uluru, is a mountain located<br>
+                        in the central outback of the northern territory.<br>
+                        It lies 335 km (208 mi) south-west of the nearest large<br> 
+                        town, Alice Springs. The Mountain is 348 metres tall,<br>
+                        topping the Eiffel Tower by 48m and the Chrysler<br>
+                        Building in NY by 37m. It's consists of arkose, a<br>
+                        coarse-grained sandstone rich in feldspar. The sandy<br>
+                        sediment forming this arkose eroded form big granite<br>
+                        mountains. These mountains also created gravel consisting<br>
+                        mostly of granite and basalt. Uluru also houses a<br>
+                        surprisingly large amount of animals, about 46 to be exact.<br>
+                        To these animals, you can count Dingos, Red Kangaroos,<br>
+                        Spinifex Hopping Mice and others that have developed<br>
+                        to the harsh climate of the outback.<br>
+                    </div>
+                    <div class="card-text col col-md-6">
+                        This mountain is sacred to the Pitjantjatjara,<br>
+                        the Aboriginal tribe near this mountain.<br>
+                        Also, the formation was declared a<br>
+                        UNESCO world heritage site and is home to many<br>
+                        ancient paintings, plenty of<br>
+                        springs waterholes and rock caves.
+                    </div>
+                </div>
+            </div>
+
+        <div style="margin: auto; width: 450px;">
+            <div class="col-md-12 mb-5">
+
+                <button type="button" class="btn btn-outline-secondary waves-effect filter" data-rel="all">All</button>
+                <button type="button" class="btn btn-outline-secondary waves-effect filter" data-rel="1">Mamals</button>
+                <button type="button" class="btn btn-outline-secondary waves-effect filter" data-rel="2">Reptiles & Amphibians</button>
+                <button type="button" class="btn btn-outline-secondary waves-effect filter" data-rel="3">Birds</button>
+
+            </div>
+        </div>
+        <div class="row" style="margin: auto; width: 62rem; height: 30rem; overflow: auto; border: 2px groove black;">
+            <div class="gallery" id="gallery">
+
+                <div class="pics animation all 2" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/gecko.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Three-lined knob-tailed gecko</p>
+                </div>
+
+                <div class="pics animation all 1" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/mole.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Southern marsupial mole</p>
+                </div>
+
+                <div class="pics animation all 3" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/butcherbird.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Pied butcherbird</p>
+                </div>
+
+                <div class="pics animation all 3" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/budgerigar.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Budgerigar</p>
+                </div>
+
+                <div class="pics animation all 2" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/pygmy.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Pygmy mulga monitor</p>
+                </div>
+
+                <div class="pics animation all 2" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/devil.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray;">Thorny devil</p>
+                </div>
+
+                <div class="pics animation all 1" style="margin-bottom: 40px;">
+                    <img class="img-fluid ml-0 mr-0" src="/static/images/rkanga.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Red Kangaroo</p>
+                </div>
+
+                <div class="pics animation all 1" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/dingo.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Dingo</p>
+                </div>
+
+                <div class="pics animation all 3" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/beeeater.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Grey-headed honeyeater</p>
+                </div>
+
+                <div class="pics animation all 1" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/mouse.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Spinifex hopping mouse</p>
+                </div>
+
+                <div class="pics animation all 2" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/snake.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">King brown snake</p>
+                </div>
+
+                <div class="pics animation all 1" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/mulgara.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Brush-tailed mulgara</p>
+                </div>
+
+                <div class="pics animation all 3" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/wagtail.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Willy wagtail</p>
+                </div>
+
+                <div class="pics animation all 3" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/parrot.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Australian ringneck parrot</p>
+                </div>
+
+                <div class="pics animation all 3" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/robin.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Red-capped robin</p>
+                </div>
+
+                <div class="pics animation all 2" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/perentie.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Perentie</p>
+                </div>
+
+                <div class="pics animation all 3" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/cockatoo.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Major Mitchell’s cockatoo</p>
+                </div>
+
+                <div class="pics animation all 3" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/fairywren.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Splendid fairy-wren</p>
+                </div>
+
+                <div class="pics animation all 2" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/frog.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Water-holding frogs</p>
+                </div>
+
+                <div class="pics animation all 1" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/mala.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Mala (rufous hare-wallaby)<p>
+                </div>
+
+                <div class="pics animation all 2" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/python.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Woma python</p>
+                </div>
+
+                <div class="pics animation all 3" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/finch.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Zebra finch</p>
+                </div>
+
+                <div class="pics animation all 3" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/kingfisher.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Red-backed kingfisher</p>
+                </div>
+
+                <div class="pics animation all 2" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/lizard.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Blue tongue lizard</p>
+                </div>
+
+                <div class="pics animation all 3" style="margin-bottom: 40px;">
+                    <img class="img-fluid" src="/static/images/falcon.jpg" alt="Card image cap">
+                    <p style="border: 1px solid gray">Brown Falcon</p>
+                </div>
+
+            </div> 
+        </div>
+    </div>
+    <div id="wildlife" class="col col-md-8 card" style="margin: 40px auto 40px;">
+        <div class="card-body">
+            <div class="col col-md-6">
+                <h3 class="card-title"><u>Uluru's Wildlife</u></h3>
+                Hiking to Uluru, the famous mountains is one of<br>
+                the best ideas when visiting Australia.<br>
+
+                <br>Being famous for its harsh desert bursting<br>
+                with red and orange colours amid the dry land<br>
+                the Uluru is soaring up from Australias ground.<br>
+                Being so big the Ayers rock also is home for a<br>
+                fascinating amount of animals and plants being<br>
+                unique to this area. Animals like the Desert<br>
+                Dingo or the Thorny Devil had to adapt to the<br>
+                warm and dry climate, and with 46 native mammals,<br>
+                178 species of birds plus 76 reptiles it has a<br>
+                lot to offer for enthusiasts, tourists and<br>
+                observers. To go into a bit more detail about<br>
+                the animals were now taking a closer look at<br>
+                the Thorny Devil and the Spinifex Pigeon.<br>
+            </div>
+        </div>
+    </div>
+
+    <div class="col col-md-8 card" style="margin: 40px auto 40px;">
+        <div class="card-body">
+            <div class="col col-md-6">
+                <br><br><br><h4 class="card-subtitle">Spinifex Pigeon</h4>
+                <br>The Spinifex Pigeon is one of the endemic species<br>
+                in Australia, and also listed by the<br>
+                IUCN (International Union for Conservation of Nature).<br>
+                This bird lives in rocky hill terrain and prefers dry<br>
+                climate. It's a small bird with brown plumage and thin<br>
+                black bars on its back and wings. The food of this<br>
+                animal is seeds and herbs from the Spinifex triodia<br>
+                species. They need to drink regularly, that is, for this<br>
+                reason, occur close to permanent water sources. They have<br>
+                to live there because the water gained from their food is<br>
+                to low, but still, need to maintain a significant water<br>
+                balance because of the high ambient air temperature.<br>
+                These pigeons can live in the climate due to their low<br>
+                body heat production. The breeding season of the Spinifex<br>
+                Pigeon is from August to January. The female lays two<br>
+                eggs nesting on the ground.<br>
+            </div>
+        </div>
+    </div>
+
+    <div class="col col-md-8 card" style="margin: 40px auto 40px;">
+        <div class="card-body">
+            <div class="col col-md-6">
+                <br><br><h4 class="card-subtitle">Thorny Devil</h4>
+                <br>The Thorny Devil, also known as the thorny dragon, is a small lizard.<br>
+                It can age up to 20 years old up growth 8inches long. They feed in the<br>
+                morning- and afternoon hours because the sun is colder. During noon<br>
+                they warm themself up in the sun. These animals are heliothermic, which<br>
+                means they need an outside source of heat because agility and body heat<br>
+                depends on the outside temperature.<br>
+
+                <br>Thanks to microscopic grooves being present all over their body and spike<br>
+                they can drink water collected from vegetation and tiny droplets in the air.<br>
+                This ability is adding an excellent adaption to this dry and hot climate.<br>
+                Because females need to produce eggs, they are more significant. The mating<br>
+                season is from August to September and the hatching time can endure 3-4 month.<br>
+                Not until a Thorny Devil is about three he is mature until then he concentrates<br>
+                on surviving.<br>
+
+                <br>The primary defence of this reptile is the spikes on his back and a little<br>
+                false head on its back consisting of fatty tissue. When a predator tries to<br>
+                attack it, a Thorny Devil puts its head between his legs showing his fake head.<br>
+                When a predator, like a bird, now tries to swallow the Thorny Devil, it will<br>
+                have problems an eventually spit him out again. But all this only if he gets<br>
+                spotted because this animal owns a camouflage system. When warm, his shell and<br>
+                skin are red to pale yellow and if cold its dark olive green.<br>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

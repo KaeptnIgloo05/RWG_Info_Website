@@ -1,0 +1,70 @@
+{% extends "template.html" %}
+{% block content %}
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          <h3 class="pb-3 mb-4 font-italic border-bottom">
+            About
+          </h3>
+          <div class="blog-post col-11">
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+
+            Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.
+
+            At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
+
+                Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita</p>
+          </div><!-- /.blog-post -->
+
+        </div><!-- /.blog-main -->
+
+        <aside class="col-md-4 blog-sidebar rounded pt-1 pb-5 mb-4 float-right border-secondary" style="background-color: rgba(190,190,190,0.6)!important;">
+          <div class="p-3 mb-3 rounded page-item">
+              <h4 class="font-italic">Service Area</h4>
+              <p class="mb-0">City, State, 00000</p>
+              <p class="mb-0">City, State, 00000</p>
+              <p class="mb-0">City, State, 00000</p>
+              <p class="mb-0">City, State, 00000</p>
+          </div>
+
+          <div class="p-3">
+            <h4 class="font-italic">Links</h4>
+            <ol class="list-unstyled mb-0">
+                <li><a class="page-link rounded" href="{{ url_for('main.home') }}" style="color: #1b1e21;">Home</a></li>
+                <li><a class="page-link" href="#" style="color: #1b1e21;">Contact</a></li>
+                <li><a class="page-link rounded" href="#" style="color: #1b1e21;">Forum</a></li>
+                <li><div class="dropdown-divider" style="color: #3f3f3f;"></div></li>
+                {% if current_user.is_authenticated %}
+                    <li><a class="page-link rounded" href="{{ url_for('users.profile') }}" style="color: #1b1e21;">Profile</a></li>
+                    <li><a class="page-link rounded" href="{{ url_for('users.logout', next=request.endpoint) }}" style="color: #1b1e21;">Logout</a></li>
+                {% else %}
+                    <li><a class="page-link rounded" href="{{ url_for('users.login', next=request.endpoint) }}" style="color: #1b1e21;">Login</a></li>
+                    <li><a class="page-link rounded" href="{{ url_for('users.register', next=request.endpoint) }}" style="color: #1b1e21;">Register</a></li>
+                {% endif %}
+            </ol>
+          </div>
+
+          <div class="p-3">
+            <h4 class="font-italic">Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a class="page-link" href="#" style="color: #1b1e21;">GitHub</a></li>
+              <li><a class="page-link" href="#" style="color: #1b1e21;">Twitter</a></li>
+              <li><a class="page-link" href="#" style="color: #1b1e21;">Facebook</a></li>
+            </ol>
+          </div>
+        </aside><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </main><!-- /.container -->
+
+
+
+{% endblock content %}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {%if title%}
+        <title>Robots.com - {{ title }}</title>
+    {%else%}
+        <title>Robots.com</title>
+    {%endif%}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+
+<!-- Navigation ------->
+<nav class="navbar navbar-expand-md navbar-dark bg-danger sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('main.home') }}"><img src="/static/images/brand.svg" alt="" height="60" style="margin-left: -20px; padding-bottom: 0;">Robots</a>
+        <button class="navbar-toggler btn-dark" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item navbar-list">
+                    <a class="nav-link" href="{{ url_for('main.home') }}">Home</a>
+                </li>
+                <li class="nav-item navbar-list">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-danger store" style="margin-bottom: -9px;">Community</button>
+                        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split store" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Forum</a>
+                            <a class="dropdown-item" href="#">Gallery</a>
+                            <a class="dropdown-item disabled" href="#">User Store</a>
+                            <div class="dropdown-divider"></div>
+                            {% if current_user.is_authenticated %}
+                                <a class="dropdown-item" href="{{ url_for('users.profile') }}">Profile</a>
+                                <a class="dropdown-item" href="{{ url_for('users.logout') }}">Logout</a>
+                            {% else %}
+                                <a class="dropdown-item" href="{{ url_for('users.login') }}">Login</a>
+                                <a class="dropdown-item" href="{{ url_for('users.register') }}">Register</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item navbar-list">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item navbar-list">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+                <form class="form-inline">
+                    <a class="btn btn-danger" data-toggle="collapse" href="#collapseSearchbar" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-search"></i></a>
+                    <div class="collapse" id="collapseSearchbar">
+                        <input class="form-control mr-sm-2 form-control-sm" type="search" placeholder="Search" aria-label="Search">
+                    </div>
+                </form>
+        </div>
+    </div>
+</nav>
+<body>
+<!-- Flash ---------->
+    <div class="pt-1 col-12">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {%for category, message in messages%}
+                    <div class="alert alert-{{ category }} alert-dismissible col-12 mx-auto">
+                        <button type="button" class="close" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                        {{ message }}
+                    </div>
+                {%endfor%}
+            {%endif%}
+        {% endwith %}
+    </div>
+
+<!-- Content ---------->
+    <div class="col-12">
+
+        <h1 class="text-dark text-center pt-5 te">Error 404 - not found</h1>
+        <img src="/static/images/404-unicorn.png" alt="" class="align-content-center">
+
+    </div>
+
+
+</body>
+<!-- Footer ----------->
+<footer class="footer">
+    <div class="container-fluid padding" style="background-color: #1d2124; color: white;">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <img src="static/images/brand.svg" alt="" height="30px" width="30px">
+                <hr class="light">
+                <p>123-456-789</p>
+                <p>fabianstagun@outlook.de</p>
+                <p>Straßenname str. 15A</p>
+                <p>17192, Waren, Germany </p>
+            </div>
+            <div class="col-md-4">
+                <hr class="light">
+                <h5>Our hours</h5>
+                <hr class="light">
+                <p>Monday - Friday:8am-6pm</p>
+                <p>Saturday:8am-12am</p>
+                <p>Sunday:closed</p>
+            </div>
+            <div class="col-md-4">
+                <hr class="light">
+                <h5>Service Area</h5>
+                <hr class="light">
+                <p>City, State, 00000</p>
+                <p>City, State, 00000</p>
+                <p>City, State, 00000</p>
+                <p>City, State, 00000</p>
+            </div>
+            <div class="col-12">
+                <hr class="light-100">
+                <h5>&copy; Fabian Stagun</h5>
+            </div>
+        </div>
+    </div>
+</footer>
+</html>

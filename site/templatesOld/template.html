@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {%if title%}
+        <title>The Uluru.com - {{ title }}</title>
+    {%else%}
+        <title>The Uluru.com</title>
+    {%endif%}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <script type="text/javascript">
+    	$(document).ready(function(){
+		//show
+		$(window).scroll(function(){
+			if($(this).scrollTop() > 200){
+			    $('.scrollToTop').fadeIn();
+			} else if($(this).scrollTop() + $(window).height() > $(document).height() - 100) {  
+			    $('.scrollToTop').fadeOut();
+			} else {
+			    $('.scrollToTop').fadeOut();
+			}
+		});
+        });
+
+        $(window).scroll(function(e) {
+
+        var scroll = $(window).scrollTop();
+        if (scroll >= 150) {
+            $('.navbar').addClass("navbar-hide");
+        } else {
+            $('.navbar').removeClass("navbar-hide");
+        }
+
+        });
+
+    </script>
+    <link href="/static/css/style.css" rel="stylesheet">
+    <style>
+    scroll-behavoir: smooth;*{overflow-y:scroll;-ms-overflow-style:none;
+    scrollbar-width:none;}*::-webkit-scrollbar{display:none;}</style>
+</head>
+
+<!-- Navigation ------->
+<nav class="navbar navbar-dark navbar-expand-md sticky-top" style="padding: 0px;">
+    <div class="container-fluid" style="background-color: rgba(0, 0, 0, 0.25); padding: 0px;">
+        <div class="pl-3">
+            <a class="navbar-brand" href="{{ url_for('main.home') }}">The Uluru</a>
+            <button class="navbar-toggler btn-dark" type="button" data-toggle="collapse" data-target="#navbarResponsive" style="right: sticky;">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <div class="pr-0 nav-left" style="background-color: rgba(0, 0, 0, 0.25)">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="btn-group">
+                            <a class="nav-link" href="{{ url_for('uluru.ayersrock') }}">Ayers Rock</a>
+                            <button type="button" class="btn dropdown-toggle dropdown-toggle-split store" style="border-radius: 0px; background-color: rgba(0, 0, 0, 0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu nav-item">
+                                <a class="dropdown-item" href="{{ url_for('uluru.ayersrock') }}#wildlife">Wild life</a>
+                                <a class="dropdown-item" href="{{ url_for('uluru.ayersrock') }}#history">History</a>
+                                <a class="dropdown-item" href="{{ url_for('uluru.ayersrock') }}#today">Ayers Rock - Today</a>
+                                <div class="dropdown-divider"></div>
+                                {% if current_user.is_authenticated %}
+                                    <a class="dropdown-item" href="{{ url_for('users.profile') }}">Profile</a>
+                                    <a class="dropdown-item" href="{{ url_for('users.logout') }}">Logout</a>
+                    <a class="dropdown-item" href="#"></a>
+                                {% else %}
+                                    <a class="dropdown-item" href="{{ url_for('users.login') }}">Login</a>
+                                    <a class="dropdown-item" href="{{ url_for('users.register') }}">Register</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.about') }}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                    <form class="form-inline" style="padding-left: 10px;">
+                        <a class="btn" style="background-color: rgba(0, 0, 0, 0); color: white;" data-toggle="collapse" href="#collapseSearchbar" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-search"></i></a>
+                        <div class="collapse" id="collapseSearchbar">
+                            <input class="form-control mr-sm-2 form-control-sm" type="search" placeholder="Search" aria-label="Search">
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<section id="top"></section>
+<body>
+<!-- Flash ---------->
+    <div class="pt-1 col-12">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {%for category, message in messages%}
+                    <div class="alert alert-{{ category }} alert-dismissible col-12 mx-auto">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        {{ message }}
+                    </div>
+                {%endfor%}
+            {%endif%}
+        {% endwith %}
+    </div>
+<!-- Content ---------->
+    <div>
+        {% block content %}
+
+        {%endblock%}
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+<!-- Footer ----------->
+<footer id="bottom" class="footer" style="width: 100%;">
+    <div class="container-fluid padding" style="background-color: #1d2124; color: white;">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <hr class="light">
+		<h5>Contact<h5>
+		<hr class="light">
+                <p>123-456-789</p>
+                <p>fabianstagun@outlook.de</p>
+                <p>Sesamstraße 25A</p>
+                <p>17192, Waren, Germany </p>
+            </div>
+            <div class="col-md-4">
+                <hr class="light">
+                <h5>Our hours</h5>
+                <hr class="light">
+                <p>Monday - Friday:8am-6pm</p>
+                <p>Saturday:8am-12am</p>
+                <p>Sunday:closed</p>
+		<ul class="smooth-scroll list-unstyled">
+			<li>
+				<div>
+					<div style="border: transparent; margin-top: 0px; margin-bottom: 0px; margin-left: 43%; margin-right: 43%;">
+						<a href="#top" style="color: white; font-size: 48px; padding: 0px; margin: 0px;">
+							<span class="fas fa-angle-up style="font-size: 48px;"></span>
+						</a>
+						<a href="#top" style="color: white; margin: 0px; padding: 0px;">
+							<hr class="light" style="width: 10%; margin-top: 0px; margin-bottom: 0px; padding: 0px;">
+							<p class="text-center" style="margin-top: 0px; padding-top: 0px;">Top</p>
+						</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+            </div>
+            <div class="col-md-4">
+                <hr class="light">
+                <h5>Service Area</h5>
+                <hr class="light">
+                <p>Waren (Müritz), Mecklenburg-Vorpommern, 17192, Germany</p>
+                <p>City, State, 00000</p>
+                <p>City, State, 00000</p>
+                <p>City, State, 00000</p>
+            </div>
+            <div class="col-12">
+                <hr class="light-100">
+                <h5>&copy; Fabian Stagun</h5>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<a href="#top" class="scrollToTop"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
+
+</html>
